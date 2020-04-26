@@ -15,13 +15,16 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        exclude: /node_modules/,
         loader: 'vue-loader',
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.less$/,
@@ -52,6 +55,17 @@ module.exports = {
               strictMath: true,
               noIeCompat: true,
               sourceMap: false,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(ttf|eot|woff|woff2|svg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              encoding: false,
             },
           },
         ],

@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import TreeTransfer from '../../src/index.vue';
+import App from './App.vue';
 
 new Vue({
-  render: h => h(TreeTransfer),
+  render: h => h(App),
 }).$mount('#app');

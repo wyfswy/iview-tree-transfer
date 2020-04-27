@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'vue-style-loader', 'css-loader'],
       },
       {
         test: /\.less$/,
@@ -34,9 +34,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: {
-                localIdentName: '[local]_[hash:base64:5]',
-              },
+              modules: false,
               sourceMap: false,
             },
           },
@@ -45,7 +43,12 @@ module.exports = {
             options: {
               plugins: () =>
                 autoprefixer({
-                  browsers: ['last 2 version', '> 1%'],
+                  overrideBrowserslist: [
+                    'last 2 versions',
+                    'Firefox ESR',
+                    '> 1%',
+                    'ie >= 10',
+                  ],
                 }),
             },
           },
